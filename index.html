@@ -91,11 +91,39 @@
            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tr>
               <td>
-                <heading style="font-size:22px"> Publication</heading>
+                <heading style="font-size:22px"> Publications</heading>
               </td>
             </tr>
 
-          
+            
+              <tr >
+              <td width="30%">
+                <img id="img-opt" src="img/lsuncat1k_compare.gif" alt="project_img" width="160" style="border-style: none">
+               <!--  <a href="https://www.cs.cmu.edu/~vision-aided-gan/">
+                <video loop autoplay muted border="1" width="160">
+                <source src="img/lsuncat1k_compare.gif" type="video/mp4">
+                </video></a> -->
+                </td>
+      
+                    <td valign="top" width="70%">
+                      <p><a href="https://arxiv.org/abs/2112.09130">
+        <papertitle>Ensembling Off-the-shelf Models for GAN Training</papertitle></a><br>
+        <i><span style="font-size: 10pt;">
+          Nupur Kumari, <a href="https://richzhang.github.io/">Richard Zhang</a>, <a href="https://research.adobe.com/person/eli-shechtman/">Eli Shechtman</a>, <a href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan Zhu</a></i><br>
+                        
+                      <p>Can the collective "knowledge" from a large bank of pretrained vision models be leveraged to improve GAN training? We find that pretrained computer vision models can significantly improve performance when used in an ensemble of discriminators. Our method can improve GAN training in both limited data and large-scale settings. On the full dataset, our method improves FID by 1.5x to 2x on cat, church, and horse categories of LSUN. 
+                      <br>
+                      In Arxiv, pre-print.
+                      </p>
+                      [<a href="https://arxiv.org/abs/2112.09130">Paper</a>]
+                      [<a href="https://www.cs.cmu.edu/~vision-aided-gan/">Webpage</a>]
+                      [<a href="https://github.com/nupurkmr9/vision-aided-gan">Code</a>]
+
+                      </a> </p>
+                    </td>
+            </tr>  
+
+
 
               <tr >
               <td width="30%"><img id="img-opt" src="img/cutmix_column.png" alt="project_img" width="160" style="border-style: none">
@@ -108,8 +136,8 @@
           Puneet Mangla<sup>&#42;</sup>, Nupur Kumari<sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, <a href="https://www.iith.ac.in/~vineethnb/">Vineeth N Balasubramanian</a>, Balaji Krishnamurthy</i><br>
                         
                       <p>We propose a novel transfer learning method for GANs in the limited data domain by leveraging informative data prior derived from self-supervised/supervised pre-trained networks trained on a diverse source domain. We demonstrate that the proposed method effectively transfers knowledge to domains with few target images.  
-                      <br><br>
-                      arxiv pre-print
+                      <br>
+                      In WACV2022.
                       </p>
                       <!-- [<a href="https://arxiv.org/abs/2012.04256">Paper</a>] -->
 
@@ -134,8 +162,8 @@
           Parth Patel<sup>&#42;</sup>, Nupur Kumari<sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, Balaji Krishnamurthy,</i><br>
         
                       <p>We propose LT-GAN, a self-supervised approach for GAN training to improve the generation quality and image diversity by estimating GAN-induced transformations (i.e. transformations induced in the generated images by perturbing the latent space of generator).
-                      <br><br>
-                      Work accepted at WACV, 2021.
+                      <br>
+                      In WACV, 2021.
                       </p>
                       <!-- [<a href="https://arxiv.org/abs/2010.09893">Paper</a>] -->
 
@@ -157,8 +185,8 @@
           Nupur Kumari<sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, Puneet Mangla, <a href="https://a7b23.github.io/">Abhishek Sinha</a>, <a href="https://www.iith.ac.in/~vineethnb/">Vineeth N Balasubramanian</a>, Balaji Krishnamurthy</i><br>
                         
                       <p>We propose a robust attribution training methodology <i>ART</i> that maximizes the alignment between the input and its attribution map. <i>ART</i> achieves state-of-the-art performance in attributional robustness and weakly supervised object localization on CUB dataset.  It also induces immunity to adversarial and common perturbations on standard vision datasets.    
-                      <br><br>
-                      Work acccepted at ECCV 2020.
+                      <br>
+                      In ECCV 2020.
                       </p>
                       [<a href="https://arxiv.org/abs/1911.13073">Paper</a>]
                       [<a href="https://nupurkmr9.github.io/Attributional-Robustness/">Webpage</a>]
@@ -179,11 +207,9 @@
         <papertitle>Charting the Right Manifold: Manifold Mixup for Few-shot Learning</papertitle></a><br>
                   <i><span style="font-size: 10pt;">
           Puneet Mangla<sup>&#42;</sup>, Nupur Kumari<sup>&#42;</sup>, <a href="https://a7b23.github.io/">Abhishek Sinha</a><sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, <a href="https://www.iith.ac.in/~vineethnb/">Vineeth N Balasubramanian</a>, Balaji Krishnamurthy</i><br>                     
-                      <p>Used self-supervision techniques - rotation and exemplar, followed by manifold mixup for few-shot classification tasks.
-                      <br><br>
-                      The proposed approach beats the current state-of-the-art accuracy on mini-ImageNet, CUB and CIFAR-FS datasets by 3-8%.
-                      <br><br>
-                      Work accepted at WACV, 2020.       
+                      <p>Used self-supervision techniques - rotation and exemplar, followed by manifold mixup for few-shot classification tasks. The proposed approach beats the current state-of-the-art accuracy on mini-ImageNet, CUB and CIFAR-FS datasets by 3-8%.
+                      <br>
+                      In WACV, 2020.       
                       </p>
                       [<a href="https://arxiv.org/pdf/1907.12087.pdf">Paper</a>]
                       [<a href="https://github.com/nupurkmr9/S2M2_fewshot">Code</a>]
@@ -204,8 +230,8 @@
           Gunjan Aggarwal<sup>&#42;</sup>, <a href="https://a7b23.github.io/">Abhishek Sinha</a><sup>&#42;</sup>, Nupur Kumari<sup>&#42;</sup>,  <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup></i><br>
              
                       <p>In this paper, we leverage models with perceptually-aligned gradients and show that adversarial training with low max-perturbation bound can improve the performance of models on zero-shot transfer learning tasks and weakly supervised object localization.
-                      <br><br>
-                      Work accepted at ICLR workshop Towards Trustworthy ML, 2020.
+                      <br>
+                      In ICLR workshop, Towards Trustworthy ML, 2020.
                       </p>
                        
                       </a> </p>
@@ -224,8 +250,8 @@
             Nupur Kumari<sup>&#42;</sup>,Siddarth Ramesh<sup>&#42;</sup>, Akash Rupela<sup>&#42;</sup>, Piyush Gupta<sup>&#42;</sup>,Balaji Krishnamurthy </i><br>
                        
                       <p>In this paper, we propose ShapeVis, a scalable visualization technique for point cloud data inspired from topological data analysis. Our method captures the underlying geometric and topological structure of the data in a compressed graphical representation.
-                      <br><br>
-                      Work accepted at WWW, 2020.
+                      <br>
+                      In WWW, 2020.
                       </p>
                        
                       </a> </p>
@@ -245,8 +271,8 @@
             Nupur Kumari<sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, <a href="https://a7b23.github.io/">Abhishek Sinha</a><sup>&#42;</sup>, Harshitha Machiraju, Balaji Krishnamurthy, <a href="https://www.iith.ac.in/~vineethnb/">Vineeth N Balasubramanian</a></i><br>
                  
                       <p>We analyzed robust models for vulnerability against adversarial perturbations at the latent layers and proposed a finetuning algorithm which adversarailly trains latent layers of network. The algorithm achieved the state-of-the art adversarial accuracy against strong adversarial attacks.      
-                      <br><br>
-                      Work accepted at IJCAI, 2019.
+                      <br>
+                      In IJCAI, 2019.
                       </p>
                        
                       </a> </p>
@@ -267,8 +293,8 @@
                 
                       <p>We proposed an improvement over Mapper (a topological data visualization algorithm) that reduces the
 obscuration of topological information by facilitating the cover selection in data density sensitive manner. 
-                      <br><br>
-                      Work accepted at ICDM Workshop 2018.
+                      <br>
+                      In ICDM Workshop 2018.
                       </p>
                        
                       </a> </p>
@@ -285,8 +311,8 @@ obscuration of topological information by facilitating the cover selection in da
             Nupur Kumari<sup>&#42;</sup>, <a href="https://msingh27.github.io/">Mayank Singh</a><sup>&#42;</sup>, <a href="https://a7b23.github.io/">Abhishek Sinha</a><sup>&#42;</sup>,  Balaji Krishnamurthy</i><br>
                  
                       <p>We use the attribution map of images to train an auxiliary model for detecting adversarial examples of the original image classification network.
-                      <br><br>
-                      Work accepted at Nemesis ECML Workshop 2018.
+                      <br>
+                      In ECML Workshop, Nemesis, 2018.
                       </p>
                        
                       </a> </p>
