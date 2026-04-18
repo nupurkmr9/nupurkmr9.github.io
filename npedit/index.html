@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RRD9XYJL5Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RRD9XYJL5Q');
+  </script>
+
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="NP-Edit: Learning an Image Editing Model without Image Editing Pairs">
+  <meta property="og:title" content="NP-Edit: Learning an Image Editing Model without Image Editing Pairs"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:url" content="https://nupurkmr9.github.io/npedit/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="https://nupurkmr9.github.io/npedit/static/images/banner.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="NP-Edit: Learning an Image Editing Model without Image Editing Pairs">
+  <meta name="twitter:description" content="NP-Edit: Learning an Image Editing Model without Image Editing Pairs">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="https://nupurkmr9.github.io/npedit/static/images/banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Image Editing, Image Editing Pairs, Image Editing Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Learning an Image Editing Model without Image Editing Pairs</title>
+  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoElement = document.getElementById('bg-video');
+
+        // When the video metadata is loaded
+        videoElement.addEventListener('loadedmetadata', function () {
+            videoElement.style.opacity = 1.0;
+        });
+    });
+
+    window.addEventListener("scroll", function () {
+        let imageDiv = document.querySelector('.full-page-image');
+        const videoElement = document.getElementById('bg-video');
+        if (window.scrollY > 75) {
+            videoElement.style.opacity = 0;
+        }
+        // Check if page is scrolled
+        if (window.scrollY > 50) { // You can adjust this value based on your requirement
+            imageDiv.classList.add('banner-state');
+            imageDiv.classList.add('ncont');
+            imageDiv.style.backgroundImage = `url(static/images/banner.jpg)`;
+        };
+    });
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+
+  </script>
+</head>
+<body>
+
+  <!-- <div class="full-page-image">
+    <video id="bg-video" autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
+        <source src="static/images/dataset_overview1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="jay" style="padding: 0 20px">
+      <h1 style="font-family: Poppins; font-size: 250%;">Learning an Image Editing Model without Image Editing Pairs</h1>
+      <p style="font-family: Poppins; font-size: 100%;">Learning an Image Editing Model without Image Editing Pairs</p>
+    </div>
+  </div> -->
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Learning an Image Editing Model without Image Editing Pairs</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://nupurkmr9.github.io/" target="_blank">Nupur Kumari</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://peterwang512.github.io" target="_blank">Sheng-Yu Wang</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.nxzhao.com" target="_blank">Nanxuan Zhao</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://yotamnitzan.github.io" target="_blank">Yotam Nitzan</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://yuheng-li.github.io" target="_blank">Yuheng Li</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://krsingh.cs.ucdavis.edu" target="_blank">Krishna Kumar Singh</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="http://richzhang.github.io" target="_blank">Richard Zhang</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://research.adobe.com/person/eli-shechtman/" target="_blank">Eli Shechtman</a><sup>2</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.cs.cmu.edu/~junyanz/" target="_blank">Jun-Yan Zhu</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://www.xunhuang.me" target="_blank">Xun Huang</a><sup>2</sup>,
+                  </span>
+
+
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Carnegie Mellon University, &nbsp;&nbsp <sup>2</sup> Adobe Research<br>ICLR 2026</span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2510.14978.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://nupurkmr9.github.io/npedit/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2510.14978" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/method.jpg" alt="Banner Image" class="banner-image">
+      <!-- <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video> -->
+      <h2 class="content has-text-justified">
+        We propose NP-Edit (No-Pair Edit), a framework for training image editing models using gradient feedback from a Vision–Language Model (VLM), requiring <strong>no paired supervision</strong>. For efficient training and effective VLM feedback, our formulation combines it with distribution matching loss to learn a <italic>few-step </italic> image editing model. Our findings show that performance improves directly with more powerful VLMs and larger datasets, demonstrating its strong potential and scalability.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent image editing models have achieved impressive results while following natural language editing instructions,  but they rely on supervised fine-tuning with large datasets of input-target pairs. This is a critical bottleneck, as such naturally occurring pairs are hard to curate at scale. 
+            Current workarounds use synthetic training pairs that leverage the zero-shot capabilities of existing models. However, this can propagate and magnify the artifacts of the pretrained model into the final trained model. In this work, we present a new training paradigm that eliminates the need for paired data entirely. Our approach directly optimizes a few-step diffusion model by unrolling it during training and leveraging feedback from vision-language models (VLMs).  For each input and editing instruction, the VLM evaluates if an edit follows the instruction and preserves unchanged content, providing direct gradients for end-to-end optimization. To ensure visual fidelity, we incorporate distribution matching loss (DMD), which constrains generated images to remain within the image manifold learned by pretrained models. We evaluate our method on standard benchmarks and include an extensive ablation study.  Without any paired data, our method performs on par with various image editing diffusion models trained on extensive supervised paired data, under the few-step setting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <center><h2 class="title is-3">Results</h2></center>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <!-- Your image here -->
+          <center><img src="static/images/sample3.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+          <center><p style="font-size: 16px;"><i>Convert this image into an anime style</i></p></center>  
+        </div>
+       <div class="item">
+        <!-- Your image here -->
+         <!-- set a maximum height of 400px -->
+          <center><img src="static/images/sample1.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+          <center><p style="font-size: 16px;"><i>Transform the original photo into a youthful and stylish version</i></p></center>  
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <center><img src="static/images/sample2.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+        <center><p style="font-size: 16px;"><i>Replace the text WOOD with LAND</i></p></center>  
+      </div>
+     <div class="item">
+      <!-- Your image here -->
+      <center><img src="static/images/sample4.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+      <center><p style="font-size: 16px;"><i>Add a tennis ball next to the dog</i></p></center>  
+    </div>
+    <div class="item">
+      <!-- Your image here -->
+      <center><img src="static/images/sample5.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+      <center><p style="font-size: 16px;"><i>Make the child pout</i></p></center>  
+    </div>
+    <div class="item">
+      <!-- Your image here -->
+       <!-- set a maximum height of 400px -->
+        <center><img src="static/images/sample6.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+        <center><p style="font-size: 16px;"><i>Replace the text 'BAR' with 'BEACH'</i></p></center>  
+    </div>
+    <div class="item">
+      <!-- Your image here -->
+       <!-- set a maximum height of 400px -->
+        <center><img src="static/images/sample7.jpg" alt="MY ALT TEXT" style="max-height: 400px;"/></center>
+        <center><p style="font-size: 16px;"><i>change the weather to snowstorm</i></p></center>  
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+<!-- Results comparison -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <center><h5 class="title is-3">Qualitative comparison (Local Image Editing) </h5></center>
+      <br>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full">
+          <p>We show a comparison of our method with leading image-editing models on Local Image Editing using GEdit-Benchmark <a href="#ref1">[1]</a>. Since none of the baseline models explicitly target few-step editing, we simply evaluate them with few-step sampling as well as show an example with multi-step setting (in the second column) for an upper-bound comparison. Our method performs comparably to the baselines, especially in the few-step setting, and can successfully follow different editing instructions while being consistent with the input reference image</p>
+          <br>
+          <img src="static/images/comparison_editing.png" alt="Results" class="youtube-video">
+
+        </div>
+      </div>
+      <!-- <br> -->
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <center><h5 class="title is-3">Qualitative comparison (Free-form Image Editing) </h5></center>
+      <br>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full">
+          <p>We compare our method with state-of-the-art baselines (trained on paired data) on Free-form Image Editing a.k.a Customization using DreamBooth <a href="#ref2">[2]</a> benchmark. Even without using any paired data during training, our method can successfully incorporate the text prompt while maintaining object identity with the reference image.</p>
+          <br>
+          <img src="static/images/comparison_customization.jpg" alt="Results" class="youtube-video">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <center><h2 class="title is-3">Role of Dataset Scale and VLM Size</h2></center>
+        <br>
+          <center>
+            <img src="static/images/dataset_and_vlm_scale.png" style="width: 70%;" class="center-image blend-img-background">
+          </center>
+          <div class="content has-text-justified"></div>
+          <p>
+            Our training dataset consists of reference images and corresponding editing instructions without the ground truth edited images. To study the impact of dataset size and VLM scale, we vary them and evaluate performance on GEdit-Benchmark using VIEScore <a href="#ref3">[3]</a>. We observe consistent gains with larger datasets. Similarly, a larger parameter VLM-backbone leads to better performance, underscoring the promise that our method can improve as more powerful VLMs are developed.
+          </p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <center><h2 class="title is-3">Comparison with RL-based technique Flow-GRPO </h2></center>
+        <br>
+          <center>
+            <img src="static/images/flow_grpo_comparison.png" style="width: 70%;" class="center-image blend-img-background">
+          </center>
+          <div class="content has-text-justified"></div>
+          <p>
+            Reinforcement Learning (RL)-baesd techniques are a common post-training strategy for improving pre-trained models without paired supervision and can also leverage VLMs as the reward model, a similar setup to ours. However, RL relies on a reasonable initialization, and therefore we need to first train an image-editing model via Supervised Fine-Tuning (SFT) on a paired dataset. We then use Flow-GRPO <a href="#ref4">[4]</a>, a widely used RL method for text-to-image diffusion, to post-train the SFT model further. Given the same VLM as the reward model, our method outperforms Flow-GRPO on GEdit-Benchmark as evaluated by VIEScore.
+          </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <center><h5 class="title is-3">Limitation </h5></center>
+      <br>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full">
+          <center>
+            <img src="static/images/limitation.jpg" style="width: 60%;" class="center-image blend-img-background">
+          </center>
+          <p>Since our method is trained without pixel-level supervision of a ground truth edited image, during inference, we observe that the edited image may deviate from the input image in spatial details or fail to fully preserve subject identity. Adding a perceptual similarity loss (e.g., LPIPS <a href="#ref5">[5]</a>) between input and edited images alleviates this to some extent, though often at the cost of editing quality, such as failure to remove the bangs in the second row of the above image.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light"
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h5 class="title">References</h5>
+      <div class="content has-text-justified">
+        <ol>
+          <li id="ref1">
+            <strong> Step1X-Edit:</strong> A Practical Framework for General Image Editing. 
+            <a href="https://github.com/stepfun-ai/Step1X-Edit/tree/main/GEdit-Bench" target="_blank">https://github.com/stepfun-ai/Step1X-Edit/</a>
+          </li>
+          <li id="ref2">
+            <strong> DreamBooth:</strong> Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation. 
+            <a href="https://dreambooth.github.io" target="_blank">https://dreambooth.github.io</a>
+          </li>
+          <li id="ref3">
+            <strong>VIEScore:</strong> Towards Explainable Metrics for Conditional Image Synthesis Evaluation. 
+            <a href="https://github.com/TIGER-AI-Lab/VIEScore" target="_blank">https://github.com/TIGER-AI-Lab/VIEScore</a>
+          </li>
+          <li id="ref4">
+            <strong>Flow-GRPO:</strong> Training Flow Matching Models via Online RL. 
+            <a href="https://github.com/yifan123/flow_grpo" target="_blank">https://github.com/yifan123/flow_grpo</a>
+          </li>
+          <li id="ref5">
+            <strong>LPIPS:</strong> The Unreasonable Effectiveness of Deep Features as a Perceptual Metric. 
+            <a href="https://github.com/richzhang/PerceptualSimilarity" target="_blank">https://github.com/richzhang/PerceptualSimilarity</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End paper method -->
+
+
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{kumari2025npedit,
+        title={Learning an Image Editing Model without Image Editing Pairs},
+        author={Kumari, Nupur and Wang, Sheng-Yu and Zhao, Nanxuan and Nitzan, Yotam and Li, Yuheng and Singh, Krishna Kumar and Zhang, Richard and Shechtman, Eli and Zhu, Jun-Yan and Huang, Xun},
+        booktitle={ICLR},
+        year={2026}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    We thank Gaurav Parmar, Maxwell Jones, and Ruihan Gao for their feedback and helpful discussions. We are also thankful to Jei Liu (the author of Flow-GRPO) for answering our questions regarding the use of VLM as the reward model for image-editing in the RL-based training framework. This work was partly done while Nupur Kumari was interning at Adobe Research. The project was partly supported by Adobe Inc., the Packard Fellowship, the IITP grant funded by the Korean Government (MSIT) (No. RS-2024-00457882, National AI Research Lab Project), NSF IIS-2239076, and NSF ISS-2403303.
+   </div>
+</section>
+</div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
